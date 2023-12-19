@@ -9,10 +9,12 @@ import {
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate  } from "react-router-dom";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   const openNav = () => {
     setNav(!nav);
@@ -25,12 +27,15 @@ function Navbar() {
   const handleSearchSubmit = () => {
     console.log("Searching for:", searchValue);
   };
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
 
   return (
     <div className="navbar-section">
       <h1 className="navbar-title">
         <Link to="/">
-          Health <span className="navbar-sign">+</span>
+          ABC Hospital
         </Link>
       </h1>
 
@@ -63,14 +68,7 @@ function Navbar() {
         </li>
       </ul>
 
-      {/* <button
-        className="navbar-btn"
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={handleChatBtnClick}
-      >
-        <FontAwesomeIcon icon={faCommentDots} /> Live Chat
-      </button> */}
+      <button onClick={handleLoginClick} className="navbar-btn" type="button"> Login </button>
       <div className="navbar-search">
         <div className="search-container">
           <input

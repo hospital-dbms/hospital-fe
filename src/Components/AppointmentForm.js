@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/AppointmentForm.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 function AppointmentForm() {
   useEffect(() => {
@@ -16,21 +17,20 @@ function AppointmentForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async(e) => {
 
     // Validate form inputs
     const errors = {};
     if (!patientName.trim()) {
       errors.patientName = "Patient name is required";
-    } else if (patientName.trim().length < 8) {
-      errors.patientName = "Patient name must be at least 8 characters";
+    } else if (patientName.trim().length < 2) {
+      errors.patientName = "Patient name must be at least 2 characters";
     }
 
     if (!patientNumber.trim()) {
       errors.patientNumber = "Patient phone number is required";
-    } else if (patientNumber.trim().length !== 10) {
-      errors.patientNumber = "Patient phone number must be of 10 digits";
+    } else if (patientNumber.trim().length !== 9) {
+      errors.patientNumber = "Patient phone number must be of 9 digits";
     }
 
     if (patientGender === "default") {
@@ -54,6 +54,18 @@ function AppointmentForm() {
       return;
     }
 
+    try {
+      // Gọi API để tạo lịch hẹn
+      const response = await axios.post("http://127.0.0.1:8000/exam/appointments/", {
+        date: appointmentTime,
+        phoneNumber: patientNumber,
+        doctor: preferredMode, 
+        userName: patientName,
+        gender: patientGender,
+        status: "pending",
+        id: Date.now()
+      });
+
     // Reset form fields and errors after successful submission
     setPatientName("");
     setPatientNumber("");
@@ -67,22 +79,26 @@ function AppointmentForm() {
       onOpen: () => setIsSubmitted(true),
       onClose: () => setIsSubmitted(false),
     });
+    } catch (error) {
+      console.error("Error creating appointment:", error);
+      // Handle error, show error message to the user, etc.
+    }
   };
 
   return (
-    <div className="appointment-form-section">
+    <div className="appointment-form-section" style={{ alignContent: 'center' }}>
       <h1 className="legal-siteTitle">
         <Link to="/">
           Health <span className="legal-siteSign">+</span>
         </Link>
       </h1>
 
-      <div className="form-container">
+      <div className="form-container" style={{ alignItems: 'center' }} >
         <h2 className="form-title">
           <span>Book Appointment Online</span>
         </h2>
 
-        <form className="form-content" onSubmit={handleSubmit}>
+        <div className="form-content" >
           <label>
             Patient Full Name:
             <input
@@ -117,7 +133,7 @@ function AppointmentForm() {
               <option value="default">Select</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="private">I will inform Doctor only</option>
+              <option value="private">Other</option>
             </select>
             {formErrors.patientGender && <p className="error-message">{formErrors.patientGender}</p>}
           </label>
@@ -136,32 +152,26 @@ function AppointmentForm() {
 
           <br />
           <label>
-            Preferred Mode:
+            Doctor:
             <select
               value={preferredMode}
               onChange={(e) => setPreferredMode(e.target.value)}
               required
             >
-              <option value="default">Select</option>
-              <option value="voice">Voice Call</option>
-              <option value="video">Video Call</option>
+              <option value={1}>Doctor 1</option>
+              <option value={2}>Doctor 2</option>
+              <option value={3}>Doctor 3</option>
             </select>
-            {formErrors.preferredMode && <p className="error-message">{formErrors.preferredMode}</p>}
           </label>
 
           <br />
-          <button type="submit" className="text-appointment-btn">
+          <button type="submit" onClick={() => handleSubmit()} className="text-appointment-btn">
             Confirm Appointment
           </button>
 
-          <p className="success-message" style={{display: isSubmitted ? "block" : "none"}}>Appointment details has been sent to the patients phone number via SMS.</p>
-        </form>
+          <p className="success-message" style={{ display: isSubmitted ? "block" : "none" }}>Appointment details has been sent to the patients phone number via SMS.</p>
+        </div>
       </div>
-
-      <div className="legal-footer">
-        <p>© 2013-2023 Health+. All rights reserved.</p>
-      </div>
-
       <ToastContainer autoClose={5000} limit={1} closeButton={false} />
     </div>
   );

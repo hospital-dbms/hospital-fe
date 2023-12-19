@@ -1,0 +1,43 @@
+/* Add the following styles to your CSS file */
+
+.left-panel {
+    float: left;
+    width: 240px;
+    height: 100vh;
+    background-color: #5bc995;
+}
+
+.left-panel nav {
+    padding: 30px;
+}
+
+.left-panel header {
+    text-align: center;
+}
+
+.left-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-panel li {
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.left-panel a {
+    color: white;
+    text-decoration: none;
+}
+
+.right-panel {
+    margin-left: 240px;
+}
+
+.panel {
+    margin-top: 80px;
+    margin-left: 30px;
+}
+
+/* Add any additional styles as needed */

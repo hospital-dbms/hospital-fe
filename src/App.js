@@ -7,18 +7,24 @@ import NotFound from "./Pages/NotFound";
 import Appointment from "./Pages/Appointment";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
+import DoctorPage from "./Pages/DoctorPage"
+import PatientPage from "./Pages/PatientPage"
+import Profile from "./Components/Profile"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
     <div className="App">
-      <Router basename="/Health-Plus">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/doctor-page" element={<DoctorPage />} />
+          <Route path="/patient-page" element={<PatientPage />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

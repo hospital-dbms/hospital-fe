@@ -3,12 +3,12 @@ import '../css/login.css'
 import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handlephoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -23,8 +23,8 @@ const LoginForm = () => {
     e.preventDefault();
 
     // Perform your validation here
-    if (email === '' || password === '') {
-      alert('Email and password are required!');
+    if (phoneNumber === '' || password === '') {
+      alert('phoneNumber and password are required!');
       return;
     }
 
@@ -37,22 +37,21 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className='login template d-flex justify-content-center align-items-center vh-100 bg-primary'>
+      <div className='login template d-flex justify-content-center align-items-center vh-100 bg-white'>
         <div className='form_container p-5 rounded bg-white'>
           <form onSubmit={{handleLogin}}>
             <h3 className='text-center'>Sign In</h3>
             <div className='mb-2'>
-              <label htmlFor="email">Email</label>
+              <label >Phone Number</label>
               <input 
-                type="email" 
-                placeholder="Enter Email" 
+                placeholder="Enter phoneNumber" 
                 className='form-control'
-                value={email}
-                onChange={handleEmailChange}
+                value={phoneNumber}
+                onChange={handlephoneNumberChange}
               />
             </div>
             <div className='mb-2'>
-              <label htmlFor="password">Password</label>
+              <label>Password</label>
               <input 
                 type="password" 
                 placeholder="Enter Password" 
