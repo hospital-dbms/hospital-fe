@@ -22,7 +22,7 @@ function App() {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/doctor-page" element={<DoctorPage />} />
+          <Route path="/doctor-page/:id" element={<DoctorPage />} />
           <Route path="/patient-page" element={<PatientPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
