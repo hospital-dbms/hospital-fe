@@ -64,17 +64,6 @@ function DoctorPage() {
                             <h3>Doctor</h3>
                             <h2>John</h2>
                         </header>
-                        <ul>
-                            <li>
-                                <a href="/doctor-dashboard">Profile</a>
-                            </li>
-                            <li>
-                                <a href="/doctor-patient">Patient</a>
-                            </li>
-                            <li>
-                                <a href="/doctor-appointment">Appointments</a>
-                            </li>
-                        </ul>
                     </div>
                 </nav>
             </div>
@@ -83,7 +72,7 @@ function DoctorPage() {
                     <a href="/ABC-hospital" className="navbar-brand" style={{ marginLeft: '30px' }}>ABC Hospital</a>
                     <div className="collapse navbar-collapse justify-content-between">
                         <div className="navbar-nav" style={{ marginLeft: 'auto' }}>
-                            <a href="/logout" className="nav-item nav-link" style={{ marginRight: '30px' }}>Logout</a>
+                            <a href="/" className="nav-item nav-link" style={{ marginRight: '30px' }}>Logout</a>
                         </div>
                     </div>
                 </nav>

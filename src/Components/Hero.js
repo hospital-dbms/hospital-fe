@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Doctor from "../Assets/doctor-picture.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarCheck, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate  } from "react-router-dom";
+import { faCalendarCheck, faAngleUp, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Hero.css";
+import Modal from "./Modal";
+
+
 
 function Hero() {
   const navigate = useNavigate();
   const [goUp, setGoUp] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -52,6 +60,21 @@ function Hero() {
           >
             <FontAwesomeIcon icon={faCalendarCheck} /> Book Appointment
           </button>
+          <input
+            type="text"
+            placeholder="Search for scheduled appointments by phone number"
+            // value={searchValue}
+            // onChange={handleSearchChange}
+            className="navbar-search-input"
+            style={{marginLeft:'50px', width:'450px'}}
+          />
+          <button
+            className="navbar-search-button"
+            type="button"
+            onClick={toggleModal}
+          >
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </div>
 
         <div className="hero-image-section">
@@ -65,6 +88,16 @@ function Hero() {
       >
         <FontAwesomeIcon icon={faAngleUp} />
       </div>
+
+      {isModalOpen && (
+        <Modal
+          title="Scheduled Appointments"
+          // Truyền dữ liệu cần thiết cho bảng Scheduled Appointments vào đây
+          // Ví dụ: appointmentsData={...}
+          onClose={toggleModal}
+        />
+      )}
+
     </div>
   );
 }

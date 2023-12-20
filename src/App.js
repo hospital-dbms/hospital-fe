@@ -11,6 +11,7 @@ import DoctorPage from "./Pages/DoctorPage"
 import PatientPage from "./Pages/PatientPage"
 import Profile from "./Components/Profile"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import DoctorListPage from "./Pages/DoctorList";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/doctors" element={<DoctorListPage />} />
           <Route path="/doctor-page/:id" element={<DoctorPage />} />
           <Route path="/patient-page" element={<PatientPage />} />
           <Route path="/profile" element={<Profile />} />

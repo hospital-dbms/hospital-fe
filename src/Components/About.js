@@ -15,7 +15,7 @@ function About() {
           <span>About Us</span>
         </h3>
         <p className="about-description">
-          Welcome to Health Plus, your trusted partner for accessible and
+          Welcome to ABC Hospital, your trusted partner for accessible and
           personalized healthcare. Our expert doctors offer online consultations
           and specialized services, prioritizing your well-being. Join us on
           this journey towards a healthier you.
@@ -25,7 +25,7 @@ function About() {
 
         <SolutionStep
           title="Choose a Specialist"
-          description="Find your perfect specialist and book with ease at Health Plus. Expert doctors prioritize your health, offering tailored care."
+          description="Find your perfect specialist and book with ease at ABC Hospital. Expert doctors prioritize your health, offering tailored care."
         />
 
         <SolutionStep

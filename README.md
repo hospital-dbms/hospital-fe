@@ -1,10 +1,10 @@
-# Health Plus
+# ABC Hospital
 
-Welcome to the Health Plus project repository! This is a React-based website aimed at providing accessible and personalized healthcare services to users. The website allows users to connect with expert doctors, schedule appointments, and receive expert medical advice.
+Welcome to the ABC Hospital project repository! This is a React-based website aimed at providing accessible and personalized healthcare services to users. The website allows users to connect with expert doctors, schedule appointments, and receive expert medical advice.
 
 ## Project Overview
 
-- **Website**: [Health Plus](https://alkaison.github.io/Health-Plus/ "Health Plus")
+- **Website**: [ABC Hospital](https://alkaison.github.io/Health-Plus/ "ABC Hospital")
 - **Framework**: React.js
 - **Deployment**: GitHub Pages
 - **Libraries**: React-Toastify, React Router DOM, FontAwesomeIcon
@@ -31,7 +31,7 @@ Welcome to the Health Plus project repository! This is a React-based website aim
 
 ![Health-Plus Image-3](https://i.postimg.cc/8zGrwbV0/Health-Plus-Image3.png)
 
-### Why Choose Health Plus?
+### Why Choose ABC Hospital?
 
 ![Health-Plus Image-4](https://i.postimg.cc/fknMz5Kn/Health-Plus-Image4.png)
 

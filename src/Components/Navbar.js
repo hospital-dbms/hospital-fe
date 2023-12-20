@@ -30,6 +30,9 @@ function Navbar() {
   const handleLoginClick = () => {
     navigate("/login");
   };
+  const handleDoctorListClick = () => {
+    navigate("/doctors");
+  };
 
   return (
     <div className="navbar-section">
@@ -68,25 +71,9 @@ function Navbar() {
         </li>
       </ul>
 
-      <button onClick={handleLoginClick} className="navbar-btn" type="button"> Login </button>
-      <div className="navbar-search">
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchValue}
-            onChange={handleSearchChange}
-            className="navbar-search-input"
-          />
-          <button
-            className="navbar-search-button"
-            type="button"
-            onClick={handleSearchSubmit}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </div>
-      </div>
+      <button onClick={handleLoginClick} className="navbar-btn" type="button"> Login For Doctor </button>
+      <button onClick={handleDoctorListClick} className="navbar-btn" type="button"> Doctors List </button>
+      
       
 
       {/* Mobile */}
